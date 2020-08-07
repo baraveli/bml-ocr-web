@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Baraveli\BmlOcr\BmlOcr;
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::post('/detect', function (Request $request) {
+
+
+    $filename = md5($request->name) . time() . '.' . pathinfo($request->name, PATHINFO_EXTENSION);
+    Storage::disk('public')->put($filename, base64_decode($request->data));
+
+    $result = BmlOcr::make(storage_path("app/public/" . $filename), storage_path())
+        ->detect();
+
+    Storage::disk('public')->delete($filename);
+
+    return response(implode("\n", $result), 200)
+        ->header('Content-Type', 'text/plain');
 });
