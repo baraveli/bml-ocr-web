@@ -22,5 +22,5 @@ mix.js('resources/js/app.js', 'public/js')
     .purgeCss({
         enabled: mix.inProduction(),
         folders: ['./resources'],
-        extensions: ['php']
+        extensions: ['php', 'js', 'vue']
     });
