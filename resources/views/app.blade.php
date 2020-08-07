@@ -37,7 +37,7 @@
                     </h2>
                     <p
                         class="leading-7 mt-3 max-w-md mx-auto text-base text-gray-700 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                        Attach your receipt and get a text response of the receipt.
+                        Convert your BML receipt to a text response.
                     </p>
 
                     <a href="https://github.com/baraveli/bml-ocr-web">
