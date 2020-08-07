@@ -16,6 +16,16 @@
         "lodash": "^4.17.19",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "filepond": "^4.19.2",
+        "filepond-plugin-file-encode": "^2.1.6",
+        "filepond-plugin-file-validate-type": "^1.2.5",
+        "filepond-plugin-image-preview": "^4.6.4",
+        "tailwindcss": "^1.6.2",
+        "vue": "^2.6.11",
+        "vue-filepond": "^6.0.2"
     }
 }
