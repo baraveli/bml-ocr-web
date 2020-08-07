@@ -40,7 +40,8 @@
                     </h2>
                     <p
                         class="leading-7 mt-3 max-w-md mx-auto text-base text-gray-700 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                        Convert your BML receipt to text response.
+                        Convert your BML receipt to text response. <br>
+                        This project uses <a class="underline hover:text-gray-900" href="https://github.com/baraveli/bml-ocr">BML OCR</a> package by baraveli.
                     </p>
 
                     <a href="https://github.com/baraveli/bml-ocr-web">
