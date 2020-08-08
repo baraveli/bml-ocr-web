@@ -15,6 +15,7 @@
 
         <div>
             <file-pond
+                id="file"
                 ref="pond"
                 label-idle="Drop a Receipt..."
                 v-bind:allow-multiple="false"
@@ -22,6 +23,7 @@
             />
 
             <button
+                :disabled="disabled == 1"
                 type="button"
                 @click="detect()"
                 class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150"
@@ -77,7 +79,8 @@ export default {
                 data: ""
             },
             detectedText: "",
-            loading: false
+            loading: false,
+            disabled: 1
         };
     },
 
@@ -85,11 +88,6 @@ export default {
         detect: function() {
             let self = this;
             self.loading = true;
-            self.file.name = self.$refs.pond.getFile().filename;
-            self.file.data = self.$refs.pond
-                .getFile()
-                .getFileEncodeBase64String();
-
             axios
                 .post("api/detect", self.file)
                 .then(function(response) {
@@ -100,6 +98,18 @@ export default {
                     console.log(error);
                 });
         }
+    },
+
+    mounted() {
+        document
+            .querySelector("#file")
+            .addEventListener("FilePond:addfile", e => {
+                this.file.name = this.$refs.pond.getFile().filename;
+                this.file.data = this.$refs.pond
+                    .getFile()
+                    .getFileEncodeBase64String();
+                this.disabled = 0;
+            });
     },
 
     components: {
