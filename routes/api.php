@@ -22,6 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/detect', function (Request $request) {
 
+    $request->validate([
+        "name" => "required",
+        "data" => "required"
+    ]);
 
     $filename = md5($request->name) . time() . '.' . pathinfo($request->name, PATHINFO_EXTENSION);
     Storage::disk('public')->put($filename, base64_decode($request->data));
