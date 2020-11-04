@@ -65,7 +65,7 @@
                 <p class="text-center text-base leading-6 text-gray-700">
                     &copy; 2020 <a href="https://baraveli.xyz/" class="underline hover:text-gray-900">Baraveli</a> | <a
                         href="https://github.com/baraveli/bml-ocr-web" class="underline hover:text-gray-900">Github</a>
-                    | Project by <a href="https://github.com/jinas123" class="underline hover:text-gray-900">Jinas</a>
+                    | Project by <a href="https://github.com/boring-dragon" class="underline hover:text-gray-900">Jinas</a>
                 </p>
             </div>
         </div>
